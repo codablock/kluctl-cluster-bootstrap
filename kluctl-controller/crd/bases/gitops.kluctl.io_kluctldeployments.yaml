@@ -895,6 +895,9 @@ spec:
                       - ref
                       type: object
                     type: array
+                  endTime:
+                    format: date-time
+                    type: string
                   errors:
                     items:
                       properties:
@@ -954,6 +957,9 @@ spec:
                       - ref
                       type: object
                     type: array
+                  startTime:
+                    format: date-time
+                    type: string
                   warnings:
                     items:
                       properties:
@@ -981,8 +987,10 @@ spec:
                       type: object
                     type: array
                 required:
+                - endTime
                 - id
                 - ready
+                - startTime
                 type: object
               observedGeneration:
                 description: ObservedGeneration is the last reconciled generation.
