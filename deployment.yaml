@@ -1,0 +1,8 @@
+
+
+deployments:
+  - path: cilium
+  - barrier: true
+  - path: cert-manager
+  - path: kluctl-controller
+  - barrier: true
