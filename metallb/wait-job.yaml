@@ -1,0 +1,78 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: metallb-wait
+  namespace: metallb-system
+  annotations:
+    kluctl.io/hook: post-deploy-initial
+spec:
+  podSelector:
+    matchLabels:
+      job-name: cilium-wait
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - {}
+  egress:
+    - {}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: "metalllb-wait"
+  namespace: metallb-system
+  annotations:
+    kluctl.io/hook: post-deploy-initial
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: "metalllb-wait"
+  annotations:
+    kluctl.io/hook: post-deploy-initial
+subjects:
+  - kind: ServiceAccount
+    name: "metalllb-wait"
+    namespace: "metallb-system"
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "metalllb-wait"
+  namespace: metallb-system
+  annotations:
+    kluctl.io/hook: post-deploy-initial
+spec:
+  template:
+    metadata:
+      name: "metalllb-wait"
+    spec:
+      restartPolicy: Never
+      serviceAccountName: "metalllb-wait"
+      containers:
+        - name: metalllb-wait
+          image: public.ecr.aws/docker/library/alpine:3.17.3
+          command:
+            - /bin/sh
+            - -c
+            - |
+              set -e
+              apk add curl
+              curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+              chmod +x kubectl
+              mv kubectl /usr/local/bin/
+
+              echo "Waiting for controller to get ready..."
+              if ! kubectl wait -n metallb-system --for=condition=available --timeout=1h controller; then
+                echo "Error while waiting for environment to become ready."
+                exit 1
+              fi
+              echo "Ready!"
+      tolerations:
+        - key: "CriticalAddonsOnly"
+          operator: "Exists"

@@ -1,3 +1,4 @@
 resources:
   - metallb-native.yaml
+  - wait-job.yaml
   - address-pools.yaml
