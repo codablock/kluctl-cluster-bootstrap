@@ -600,7 +600,7 @@ spec:
                     type: integer
                   orphanObjects:
                     type: integer
-                  project:
+                  projectKey:
                     properties:
                       normalizedGitUrl:
                         type: string
@@ -612,6 +612,74 @@ spec:
                   renderedObjects:
                     type: integer
                   target:
+                    properties:
+                      args:
+                        type: object
+                        x-kubernetes-preserve-unknown-fields: true
+                      context:
+                        type: string
+                      discriminator:
+                        type: string
+                      images:
+                        items:
+                          properties:
+                            container:
+                              type: string
+                            deployTags:
+                              items:
+                                type: string
+                              type: array
+                            deployedImage:
+                              type: string
+                            deployment:
+                              type: string
+                            deploymentDir:
+                              type: string
+                            image:
+                              type: string
+                            namespace:
+                              type: string
+                            object:
+                              properties:
+                                group:
+                                  type: string
+                                kind:
+                                  type: string
+                                name:
+                                  type: string
+                                namespace:
+                                  type: string
+                                version:
+                                  type: string
+                              required:
+                              - kind
+                              - name
+                              type: object
+                            resultImage:
+                              type: string
+                          required:
+                          - image
+                          - resultImage
+                          type: object
+                        type: array
+                      name:
+                        type: string
+                      sealingConfig:
+                        properties:
+                          args:
+                            type: object
+                            x-kubernetes-preserve-unknown-fields: true
+                          certFile:
+                            type: string
+                          secretSets:
+                            items:
+                              type: string
+                            type: array
+                        type: object
+                    required:
+                    - name
+                    type: object
+                  targetKey:
                     properties:
                       clusterId:
                         type: string
@@ -636,10 +704,11 @@ spec:
                 - id
                 - newObjects
                 - orphanObjects
-                - project
+                - projectKey
                 - remoteObjects
                 - renderedObjects
                 - target
+                - targetKey
                 - totalChanges
                 - warnings
                 type: object
@@ -807,7 +876,7 @@ spec:
                     type: integer
                   orphanObjects:
                     type: integer
-                  project:
+                  projectKey:
                     properties:
                       normalizedGitUrl:
                         type: string
@@ -819,6 +888,74 @@ spec:
                   renderedObjects:
                     type: integer
                   target:
+                    properties:
+                      args:
+                        type: object
+                        x-kubernetes-preserve-unknown-fields: true
+                      context:
+                        type: string
+                      discriminator:
+                        type: string
+                      images:
+                        items:
+                          properties:
+                            container:
+                              type: string
+                            deployTags:
+                              items:
+                                type: string
+                              type: array
+                            deployedImage:
+                              type: string
+                            deployment:
+                              type: string
+                            deploymentDir:
+                              type: string
+                            image:
+                              type: string
+                            namespace:
+                              type: string
+                            object:
+                              properties:
+                                group:
+                                  type: string
+                                kind:
+                                  type: string
+                                name:
+                                  type: string
+                                namespace:
+                                  type: string
+                                version:
+                                  type: string
+                              required:
+                              - kind
+                              - name
+                              type: object
+                            resultImage:
+                              type: string
+                          required:
+                          - image
+                          - resultImage
+                          type: object
+                        type: array
+                      name:
+                        type: string
+                      sealingConfig:
+                        properties:
+                          args:
+                            type: object
+                            x-kubernetes-preserve-unknown-fields: true
+                          certFile:
+                            type: string
+                          secretSets:
+                            items:
+                              type: string
+                            type: array
+                        type: object
+                    required:
+                    - name
+                    type: object
+                  targetKey:
                     properties:
                       clusterId:
                         type: string
@@ -843,10 +980,11 @@ spec:
                 - id
                 - newObjects
                 - orphanObjects
-                - project
+                - projectKey
                 - remoteObjects
                 - renderedObjects
                 - target
+                - targetKey
                 - totalChanges
                 - warnings
                 type: object
