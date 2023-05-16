@@ -72,6 +72,8 @@ spec:
                 echo "Error while waiting for environment to become ready."
                 exit 1
               fi
+              # wait some additional seconds to ensure the webhooks are up and running
+              sleep 10
               echo "Ready!"
       tolerations:
         - key: "CriticalAddonsOnly"
