@@ -68,7 +68,7 @@ spec:
               mv kubectl /usr/local/bin/
 
               echo "Waiting for controller to get ready..."
-              if ! kubectl wait -n metallb-system --for=condition=available --timeout=1h controller; then
+              if ! kubectl wait -n metallb-system --for=condition=available --timeout=1h deployment/controller; then
                 echo "Error while waiting for environment to become ready."
                 exit 1
               fi
