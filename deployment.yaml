@@ -4,6 +4,7 @@ deployments:
   - path: cilium
   - path: metallb
   - barrier: true
+  - path: metallb-address-pools
   - path: cert-manager
   - path: kluctl-controller
   - barrier: true
