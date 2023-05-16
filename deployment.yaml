@@ -8,3 +8,4 @@ deployments:
   - path: cert-manager
   - path: kluctl-controller
   - barrier: true
+  - path: template-controller
