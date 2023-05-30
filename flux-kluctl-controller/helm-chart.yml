@@ -1,6 +1,5 @@
 helmChart:
-  repo: https://kluctl.github.io/charts
-  chartName: flux-kluctl-controller
+  repo: oci://docker.io/codablock/flux-kluctl-controller
   chartVersion: 0.2.9
   releaseName: flux-kluctl-controller
   namespace: kluctl-system
