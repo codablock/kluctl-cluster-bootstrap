@@ -6,7 +6,7 @@ deployments:
   - barrier: true
   - path: metallb-address-pools
   - path: cert-manager
-  - path: flux-kluctl-controller
+  #- path: flux-kluctl-controller
   - git:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/controller
