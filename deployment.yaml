@@ -7,12 +7,12 @@ deployments:
   - path: metallb-address-pools
   - path: cert-manager
   - path: flux-kluctl-controller
-#  - git:
-#      url: https://github.com/kluctl/kluctl.git
-#      subDir: install/controller
-#    vars:
-#      - values:
-#          args:
-#            controller_version: v2.20.0-next-amd64
+  - git:
+      url: https://github.com/kluctl/kluctl.git
+      subDir: install/controller
+    vars:
+      - values:
+          args:
+            controller_version: v2.20.0-next-amd64
   - barrier: true
   - path: template-controller
