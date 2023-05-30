@@ -1,0 +1,7 @@
+helmChart:
+  repo: https://kluctl.github.io/charts
+  chartName: flux-kluctl-controller
+  chartVersion: 0.2.9
+  releaseName: flux-kluctl-controller
+  namespace: kluctl-system
+  skipPrePull: true
