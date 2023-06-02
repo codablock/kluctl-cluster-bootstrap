@@ -11,9 +11,9 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/controller
       ref: v2.20.3
-    vars:
-      - values:
-          args:
-            controller_version: v2.21.0-next-arm64
+    #vars:
+    #  - values:
+    #      args:
+    #        controller_version: v2.21.0-next-arm64
   - barrier: true
   - path: template-controller
