@@ -11,9 +11,9 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/controller
       #ref: v2.20.3
-    vars:
-      - values:
-          args:
-            controller_version: v2.21.0-devel
+    #vars:
+    #  - values:
+    #      args:
+    #        controller_version: v2.21.0-devel
   - barrier: true
   - path: template-controller
