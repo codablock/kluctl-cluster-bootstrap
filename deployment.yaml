@@ -20,3 +20,4 @@ deployments:
               - --write-command-result
   - barrier: true
   - path: template-controller
+  - path: argocd
