@@ -10,9 +10,9 @@ deployments:
         name: aws-node
   - barrier: true
   - path: cilium
-  - path: metallb
+  #- path: metallb
   - barrier: true
-  - path: metallb-address-pools
+  #- path: metallb-address-pools
   - path: cert-manager
   - path: external-dns
   #- path: flux-kluctl-controller
