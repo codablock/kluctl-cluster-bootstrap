@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: kluctl-webui
+  namespace: kluctl-system
 spec:
   rules:
     - host: webui.kluctl-demo.kluctl.io
