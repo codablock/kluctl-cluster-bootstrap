@@ -11,7 +11,10 @@ hubble:
     auto:
       method: cronJob
 
-{% if target.name != "eks" %}
+{% if target.name == "eks" %}
+k8sServiceHost: 296F003533321751E621797608D092DD.gr7.eu-central-1.eks.amazonaws.com
+k8sServicePort: 443
+{% else %}
 k8sServiceHost: {{ target.name }}-control-plane # use master node in kind network
 k8sServicePort: 6443               # use api server port
 {% endif %}
