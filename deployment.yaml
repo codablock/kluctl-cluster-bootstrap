@@ -24,6 +24,15 @@ deployments:
           args:
             controller_version: v2.21.0-devel
             #controller_version: v2.21.0-snapshot-arm64
+  - git:
+      url: https://github.com/kluctl/kluctl.git
+      subDir: install/webui
+      #ref: v2.20.3
+    vars:
+      - values:
+          args:
+            kluctl_version: v2.21.0-devel
+            #controller_version: v2.21.0-snapshot-arm64
   - barrier: true
   - path: template-controller
   - path: argocd
