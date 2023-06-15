@@ -22,10 +22,8 @@ deployments:
     vars:
       - values:
           args:
-            #controller_version: v2.21.0-devel
-            controller_version: v2.21.0-snapshot-arm64
-            controller_args:
-              - --write-command-result
+            controller_version: v2.21.0-devel
+            #controller_version: v2.21.0-snapshot-arm64
   - barrier: true
   - path: template-controller
   - path: argocd
