@@ -15,6 +15,7 @@ deployments:
   #- path: metallb-address-pools
   - path: cert-manager
   - path: external-dns
+    when: target.name == "eks"
   #- path: flux-kluctl-controller
   - git:
       url: https://github.com/kluctl/kluctl.git
