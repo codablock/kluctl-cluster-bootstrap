@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-issuer
+spec:
+  acme:
+    email: ablock@codablock.de
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-issuer-account-key
+    solvers:
+      # We only use dns01 challenges so that challenges for wildcard certificates work
+      - dns01:
+          cnameStrategy: Follow
+          route53:
+            region: eu-central-1
+            accessKeyID: AKIA5GR5LYFSKFFO6K7P
+            secretAccessKeySecretRef:
+              name: route-53-credentials
+              key: secret-access-key

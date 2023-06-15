@@ -1,0 +1,6 @@
+helmChart:
+  repo: https://kubernetes-sigs.github.io/external-dns/
+  chartName: external-dns
+  chartVersion: 1.12.2
+  releaseName: external-dns
+  namespace: kube-system

@@ -14,6 +14,7 @@ deployments:
   - barrier: true
   - path: metallb-address-pools
   - path: cert-manager
+  - path: external-dns
   #- path: flux-kluctl-controller
   - git:
       url: https://github.com/kluctl/kluctl.git
@@ -34,5 +35,6 @@ deployments:
             kluctl_version: v2.21.0-devel
             #controller_version: v2.21.0-snapshot-arm64
   - barrier: true
+  - path: cluster-issuer
   - path: template-controller
   - path: argocd

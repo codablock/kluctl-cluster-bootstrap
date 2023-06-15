@@ -1,0 +1,29 @@
+tolerations:
+  - key: CriticalAddonsOnly
+    operator: Exists
+
+provider: aws
+
+domainFilters:
+  - kluctl-demo.kluctl.io
+
+triggerLoopOnEvent: true
+policy: sync
+
+extraArgs:
+  - --aws-zone-type=public
+  - --aws-batch-change-size=40
+
+env:
+  - name: AWS_SHARED_CREDENTIALS_FILE
+    value: /.aws/credentials
+
+extraVolumeMounts:
+  - name: aws-credentials
+    mountPath: /.aws
+    readOnly: true
+
+extraVolumes:
+  - name: aws-credentials
+    secret:
+      secretName: route-53-credentials
