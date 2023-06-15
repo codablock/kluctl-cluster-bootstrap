@@ -32,8 +32,8 @@ deployments:
     vars:
       - values:
           args:
-            kluctl_version: v2.21.0-devel
-            #controller_version: v2.21.0-snapshot-arm64
+            #kluctl_version: v2.21.0-devel
+            kluctl_version: v2.21.0-snapshot-arm64
   - barrier: true
   - path: cluster-issuer
   - path: template-controller
