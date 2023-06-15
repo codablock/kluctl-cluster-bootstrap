@@ -4,6 +4,7 @@ metadata:
   name: kluctl-webui
   namespace: kluctl-system
 spec:
+  ingressClassName: nginx
   rules:
     - host: webui.kluctl-demo.kluctl.io
       http:
