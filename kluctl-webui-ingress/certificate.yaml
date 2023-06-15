@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: kluctl-webui
+  namespace: kluctl-system
+spec:
+  dnsNames:
+    - webui.kluctl-demo.kluctl.io
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-issuer
+  secretName: kluctl-webui-cert

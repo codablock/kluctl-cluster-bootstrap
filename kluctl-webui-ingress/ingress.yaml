@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kluctl-webui
+spec:
+  rules:
+    - host: webui.kluctl-demo.kluctl.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kluctl-webui
+                port:
+                  number: 8080
+  tls:
+    - hosts:
+        - 'webui.kluctl-demo.kluctl.io'
+      secretName: 'kluctl-webui-cert'

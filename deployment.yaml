@@ -38,3 +38,6 @@ deployments:
   - path: cluster-issuer
   - path: template-controller
   - path: argocd
+  - barrier: true
+  - path: kluctl-webui-ingress
+    when: target.name == "eks"
