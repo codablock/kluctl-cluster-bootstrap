@@ -1,6 +1,14 @@
 
 
 deployments:
+  - deleteObjects:
+      - kind: DaemonSet
+        namespace: kube-system
+        name: kube-proxy
+      - kind: DaemonSet
+        namespace: kube-system
+        name: aws-node
+  - barrier: true
   - path: cilium
   - path: metallb
   - barrier: true
