@@ -24,7 +24,7 @@ deployments:
     vars:
       - values:
           args:
-            controller_version: {{ args.kluctl_version }}
+            kluctl_version: {{ args.kluctl_version }}
   - git:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
