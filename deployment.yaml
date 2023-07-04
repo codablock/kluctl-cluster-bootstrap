@@ -20,7 +20,7 @@ deployments:
   - git:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/controller
-      #ref: v2.20.3
+      ref: main
     vars:
       - values:
           args:
@@ -28,7 +28,7 @@ deployments:
   - git:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
-      #ref: v2.20.3
+      ref: main
     vars:
       - values:
           args:
