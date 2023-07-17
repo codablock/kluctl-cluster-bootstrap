@@ -33,6 +33,17 @@ deployments:
       - values:
           args:
             kluctl_version: {{ args.kluctl_version }}
+            webui_args:
+              - --auth-oidc-issuer-url=https://dev-jz08amaw1l857mu3.us.auth0.com/
+              - --auth-oidc-client-id=7AitfQAj74oQ0EXJVZX7QrmEHSyxnvMK
+              - --auth-oidc-scope=openid
+              - --auth-oidc-scope=profile
+              - --auth-oidc-scope=email
+              - --auth-oidc-scope=https://kluctl.io/roles
+              - --auth-oidc-redirect-url=http://localhost:3000/auth/callback
+              - --auth-oidc-group-claim=https://kluctl.io/roles
+              - --auth-oidc-admins-group=kluctl-admins
+              - --auth-oidc-viewers-group=kluctl-viewers
   - barrier: true
   - path: cluster-issuer
   - path: template-controller
