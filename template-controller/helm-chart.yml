@@ -4,4 +4,4 @@ helmChart:
   releaseName: template-controller
   namespace: kluctl-system
   output: deploy.yml
-  skipPrePull: true
+  skipPrePull: false
